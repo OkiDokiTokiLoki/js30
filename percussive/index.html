@@ -62,16 +62,16 @@
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-    if (!audio) return;
+    if (!audio) return; // eventListener on window listens for every keydown event
 
-    audio.currentTime = 0;
+    audio.currentTime = 0; // allows sounds to play again without needing to finish the whole sound
     audio.play();
 
     key.classList.add('playing');
   }
 
   function removePlayingClass(e){
-    if (e.propertyName !== 'transform') return;
+    if (e.propertyName !== 'transform') return; // only elements with .playing have a 'transform' property
     this.classList.remove('playing');
   }
 
